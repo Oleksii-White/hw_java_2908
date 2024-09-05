@@ -1,4 +1,51 @@
 # hw_java_2908
+/*Task #1
+    Создать программу, выводящую на экран ближайшее к 10 из двух чисел,
+    записанных в переменные m и n.
+    Числа могут быть, как целочисленные, так и дробные.
+*/
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введи любое число: ");
+        double m = scan.nextDouble();
+
+        System.out.println("Введи ещё одно число: ");
+        double n = scan.nextDouble();
+
+        System.out.println("Введи число удалённость к которому будем равнять: ");
+        double x = scan.nextDouble();
+
+        double closeNumber = whatIsCloser(m, n, x);
+        if (closeNumber == m){
+            System.out.println(m + " ближе " + x);
+        } else if (closeNumber == n) {
+            System.out.println(n + " ближе " + x);
+        } else {
+            System.out.println("числа равноудалены");
+        }
+
+    }
+
+    public static double whatIsCloser(double m, double n, double x) {
+        double dintanceA = Math.abs(m - x);
+        double dintanceB = Math.abs(n - x);
+        if (dintanceA > dintanceB){
+            return n;
+        } else if (dintanceB > dintanceA) {
+            return m;
+        } else {
+            System.out.println("Числа равноудалены");
+            return m;
+        }
+    }
+}
+
+
+
 /*Task 2
     Есть устройство, на табло которого показывается количество секунд, оставшихся до конца рабочего дня.
     Когда рабочий день начинается ровно в 9 часов утра — табло отображает «28800» (т.е. остаётся 8 часов),
